@@ -1,6 +1,15 @@
 $(document).ready( function(){
 
-$(".js-back").hide();
+$(".js-back").hide();// ocultando la flecha
+
+function printNews(){
+
+	var parrafo = document.createTextNode("NUEVAS RECETAS");
+	document.getElementById("nuevo").appendChild(parrafo);
+
+
+}
+printNews();
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
