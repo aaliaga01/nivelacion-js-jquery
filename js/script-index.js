@@ -23,6 +23,16 @@ printNews();
 */
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes: ', recipesArray);
+
+	recipesArray.forEach(function (receta){
+
+		if (receta.highlighted === true){
+			
+			renderRecipe(receta);
+		}
+
+	});
+
 }
 
 /*
