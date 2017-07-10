@@ -50,7 +50,7 @@ function renderRecipe(recipe) {
 		});
 
 	var imagen = $("<img>",{
-		'background-image' : '"url(img/recipes/640x800" + "recipes" + .jpg)'
+		'src' : 'img/recipes/640x800/' + recipe.name + '.jpg'
 	});
 
 	var spanAtt = $("<span>", {
