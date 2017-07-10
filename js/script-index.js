@@ -27,7 +27,7 @@ function renderHighlightedRecipes(recipesArray) {
 	recipesArray.forEach(function (receta){
 
 		if (receta.highlighted === true){
-			
+
 			renderRecipe(receta);
 		}
 
@@ -43,6 +43,50 @@ function renderHighlightedRecipes(recipesArray) {
 */
 function renderRecipe(recipe) {
 	console.log('Voy a pintar la receta: ', recipe);
+ 
+	var conten = $("<a>", {
+			'href' : '#',
+			'class' : 'item-recipe'
+		});
+
+	var imagen = $("<img>",{
+		'href' : '/img/recipes/640x800' + recipe
+	});
+
+	var spanAtt = $("<span>", {
+		'class' : 'attribution'
+	});
+
+	var spanTitle = $("<span>", {
+		'class' : 'title-recipe',
+		'text' : recipe.title
+	});
+
+	var spanMeta = $("<span>",{
+		'class' : 'metadata-recipe'
+			});
+
+	var spanRecipe = $("<span>",{
+		'class': 'author-recipe',
+		'text' : recipe.source.name
+	});
+
+	var spanBookmark = $("<span>",{
+		'class' : 'icon-bookmark'
+	});
+
+	var spanIcon = $("<span>",{
+		'class' : 'icon'
+	});
+
+	$(".list-recipes").append(conten);
+	$(conten).append(spanAtt);
+	$(spanAtt).append(spanTitle);
+	$(spanAtt).append(spanMeta);
+	$(spanMeta).append(spanRecipe);
+	$(spanBookmark).append(spanIcon);
+	$(conten).append(imagen);
+
 }
 
 
