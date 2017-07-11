@@ -11,11 +11,11 @@ printNews();
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 
-	//pasando la funcion cuando el DOM este listo
+	//pasando la funcion cuando el DOM este listo, detalle : el nombre de la varia ble en activities.js 
+	//tiene que ser el mismo que estoy llamando aca entre parentesis, sino aparece eternamente function not defined ¬¬ que malvada eres blanca.
 	renderActivities(activitiesArray);
 
 	//
-	renderActivity(activitiesArray);
 
 });// ./ function ready
 
@@ -90,17 +90,20 @@ function renderRecipe(recipe) {
 	$(spanMeta).append(spanRecipe);
 	$(spanBookmark).append(spanIcon);
 	$(conten).append(imagen);
-
 }
 
 /*
 * Función que se encarga de pintar todas las actividades
 */
-function renderActivities(activitiesArray) {
+function renderActivities(activitiesArray) { 
 	console.log('Activities: ', activitiesArray);
 
 	activitiesArray.forEach( function (actividad){
 		renderActivity(actividad);
+		
+		if (activitiesArray.length > 0){
+			$(".wrapper-message").hide();
+		}
 	});
 
 }
@@ -110,9 +113,13 @@ function renderActivities(activitiesArray) {
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-activity.html"
 */
-function renderActivity(activitiesArray) {
-
-	$(".list-activities").append("<a href='#' class='item-activity'</a>");
+function renderActivity(activitiesArray) { // La mayoria crea asi los elementos en el DOM, es mas corto que como lo hice yo parece
+	$(".list-activities").append('<a href="#" class="item-activity"><span class="attribution"><span class="avatar"><img src='
+		+ activitiesArray.userAvatar +' class="image-avatar"></span><span class="meta"><span class="author">'
+		+ activitiesArray.userName+'</span> made <span class="recipe">'+ activitiesArray.recipeName +'</span>:'
+		+ activitiesArray.text +'<span class="location">&mdash;'+ activitiesArray.place 
+		+'</span></span></span><div class="bg-image" style="background-image: url(' 
+			+ activitiesArray.image + ');"></div></a>');
 }
 
 
