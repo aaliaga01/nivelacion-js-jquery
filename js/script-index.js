@@ -120,6 +120,6 @@ function renderActivity(activitiesArray) { // La mayoria crea asi los elementos 
 		+ activitiesArray.text +'<span class="location">&mdash;'+ activitiesArray.place 
 		+'</span></span></span><div class="bg-image" style="background-image: url(' 
 			+ activitiesArray.image + ');"></div></a>');
-}
+} //Esto correspondia a la seccion 6, lo coloque junto con la seccion 5 TOT
 
 
